@@ -4,19 +4,25 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "build": "webpack --profile --colors",
-    "dev": "electron ./",
+    "build": "webpack --hide-modules --colors",
+    "dev": "webpack --hide-modules --colors && electron ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "bulma": "^0.4.0",
     "electron": "^1.6.2",
+    "font-awesome": "^4.7.0",
+    "menubar": "^5.2.3",
     "vue": "^2.2.6",
     "vue-router": "^2.4.0"
   },
   "devDependencies": {
     "css-loader": "^0.28.0",
+    "devtron": "^1.4.0",
+    "electron-debug": "^1.1.0",
+    "electron-devtools-installer": "^2.2.0",
     "vue-loader": "^11.3.4",
     "vue-template-compiler": "^2.2.6",
     "webpack": "^2.3.3"

@@ -3,16 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>App</title>
+
+    <link rel="stylesheet" href="node_modules/bulma/css/bulma.css">
+    <link rel="stylesheet" href="node_modules/font-awesome/css/font-awesome.min.css">
+    <style>
+        section.section {
+            padding: .750rem !important;
+        }
+        .right-nav a {
+            margin-left: 0.350rem !important;
+        }
+        a.is-danger {
+            color: #ff3860;
+        }
+        a.is-danger:hover {
+            color: #ff2b56;
+        }
+    </style>
 </head>
 <body>
-    <div id="app">
-        <nav>
-            <h3>Links</h3>
-            <router-link to="/">Home</router-link>
-            <router-link to="/about">About</router-link>
-        </nav>
-        <router-view></router-view>
-    </div>
-    <script src="dist/build.js"></script>
+
+<div id="app">
+
+    <nav id="app-nav">
+        <section class="section">
+            <div class="container">
+                <div class="columns is-mobile">
+                    <div class="column">
+                        <router-link to="/" class="button is-primary" v-show="isIssueList">
+                            <span class="icon"><i class="fa fa-sign-out" aria-hidden="true"></i></span>
+                            <span>Sign Out</span>
+                        </router-link>
+                        <router-link to="/issue-list" class="button is-primary" v-show="isIssueDetailOrIssueSearch">
+                            <span class="icon"><i class="fa fa-step-backward" aria-hidden="true"></i></span>
+                            <span>Back</span>
+                        </router-link>
+                    </div>
+                    <div class="column">
+                        <router-link to="/issue-search" class="button is-primary is-pulled-right" v-show="isIssueList">
+                            <span class="icon"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </nav>
+
+    <router-view></router-view>
+
+</div>
+
+<script src="dist/app.js"></script>
 </body>
 </html>
