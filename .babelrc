@@ -1,0 +1,19 @@
+{
+  "env": {
+    "main": {
+      "presets": [
+        "es2015"
+      ]
+    },
+    "renderer": {
+      "presets": [
+        [
+          "es2015",
+          {
+            "modules": false
+          }
+        ]
+      ]
+    }
+  }
+}

@@ -34,19 +34,19 @@
 
                             <table class="table is-bordered is-striped">
                                 <tbody>
-                                    <tr>
-                                        <td>Reporter</td><td><a href="mailto:peter.murray@brsgolf.com">Peter Murray</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Assignee</td><td><a href="mailto:stephen.mcauley@nbcuni.com">Stephen McAuley</a></td>
-                                    </tr>
-                                    <tr>
-                                        <td>Priority</td><td><img src="http://findicons.com/files/icons/2015/24x24_free_application/24/up.png" width="14" height="14" alt="Normal"> Normal</td>
-                                    </tr>
+                                <tr>
+                                    <td>Reporter</td><td><a href="mailto:peter.murray@brsgolf.com">Peter Murray</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Assignee</td><td><a href="mailto:stephen.mcauley@nbcuni.com">Stephen McAuley</a></td>
+                                </tr>
+                                <tr>
+                                    <td>Priority</td><td><img src="http://findicons.com/files/icons/2015/24x24_free_application/24/up.png" width="14" height="14" alt="Normal"> Normal</td>
+                                </tr>
                                 </tbody>
                             </table>
 
-                            <p><a class="button is-success is-fullwidth">Add</a></p>
+                            <p><a class="button is-info is-fullwidth">Add</a></p>
                             <p><a class="button is-danger is-fullwidth">Cancel</a></p>
 
                         </div>
@@ -67,10 +67,10 @@
   export default {
     name: 'issue-search',
     mounted () {
-      ipcRenderer.send('testsend', 'ping'),
+      ipcRenderer.send('testsend', 'ping')
       Event.$emit('toggle')
     },
-    data: function () {
+    data () {
       return {
       }
     },

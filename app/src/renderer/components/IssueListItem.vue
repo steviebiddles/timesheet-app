@@ -14,6 +14,7 @@
             <div class="card-body" v-show="isCardBodyShown">
                 <div class="card-content">
                     <div class="content">
+                        <h3>{{ myVariable }}</h3>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec iaculis mauris.</p>
                         <a>@bulmaio</a>. <a>#css</a> <a>#responsive</a>
                         <br>
@@ -32,15 +33,16 @@
 <script>
   import Event from '../core/Event'
 
-  let isCardBodyShown = false
-
   export default {
     name: 'issue-list-item',
     data: function () {
       return {
-        isCardBodyShown: this.isCardBodyShown
+        isCardBodyShown: false
       }
     },
+    props: [
+      'myVariable'
+    ],
     mounted () {
       Event.$emit('toggle', 'issue-list')
     },

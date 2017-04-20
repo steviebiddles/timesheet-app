@@ -5,22 +5,31 @@ const url = require('url')
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
+const winURL = process.env.NODE_ENV === 'development'
+  ? 'http://localhost:3000'
+  : `file://${__dirname}/index.html`
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 1280, height: 600})
+  win = new BrowserWindow({width: 1280, height: 750})
 
-  // and load the index.html of the app.
-  win.loadURL(url.format({
-    pathname: path.join(__dirname, 'index.html'),
-    protocol: 'file:',
-    slashes: true
-  }))
+  // load
+  win.loadURL(winURL)
 
-  // Open the DevTools.
-  win.webContents.openDevTools()
-  require('electron-debug')({ showDevTools: true })
-  require('devtron').install()
+  if (process.env.NODE_ENV === 'development') {
+    // Install `electron-debug` with `devtron`
+    require('electron-debug')({showDevTools: true})
+
+    // Install `vue-devtools`
+    let installExtension = require('electron-devtools-installer')
+    installExtension.default(installExtension.VUEJS_DEVTOOLS)
+      .then(() => {})
+      .catch(err => {
+        console.log('Unable to install `vue-devtools`: \n', err)
+      })
+
+    win.webContents.openDevTools()
+  }
 
   // Emitted when the window is closed.
   win.on('closed', () => {
@@ -58,6 +67,5 @@ ipcMain.on('checkLoggedIn', (event) => {
 })
 
 ipcMain.on('testsend', (event, arg) => {
-  console.log(arg)  // prints "ping"
-  console.log('pong')
+  console.log(arg + ' pong')
 })

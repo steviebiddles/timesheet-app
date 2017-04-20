@@ -5,9 +5,9 @@
                 <div class="issue-list">
                     <h1 class="title">Issues</h1>
 
-                    <issue-list-item>TBS-1234</issue-list-item>
-                    <issue-list-item>BGA-868</issue-list-item>
-                    <issue-list-item>TBS-1923</issue-list-item>
+                    <issue-list-item :myVariable="myVariable">TBS-1234</issue-list-item>
+                    <issue-list-item :myVariable="myVariable">BGA-868</issue-list-item>
+                    <issue-list-item :myVariable="myVariable">TBS-1923</issue-list-item>
                 </div>
             </div>
         </section>
@@ -21,7 +21,12 @@
     name: 'issue-list',
     components: {
       IssueListItem
-    }
+    },
+    data () {
+      return {
+        myVariable: 'stephen'
+      }
+    },
   }
 </script>
 
