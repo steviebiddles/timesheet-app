@@ -1,3 +1,10 @@
 @import '../../../node_modules/bulma/bulma';
 
-$testColour: lightblue;
+#app {
+  padding: 1rem;
+
+  #app-nav {
+    margin-bottom: 1rem;
+    border-bottom: 1px solid #dbdbdb;
+  }
+}

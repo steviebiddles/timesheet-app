@@ -15,6 +15,9 @@ let mainConfig = {
     filename: 'main.js'
   },
   target: 'electron-main',
+  externals: [{
+    'electron-config': 'require("electron-config")'
+  }],
   module: {
     rules: [
       {
